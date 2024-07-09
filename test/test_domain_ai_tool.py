@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.domain_ai_tool import DomainAITool
+from ai_core_api_client.models.domain_ai_tool import DomainAITool
 
 class TestDomainAITool(unittest.TestCase):
     """DomainAITool unit test stubs"""
@@ -35,7 +35,7 @@ class TestDomainAITool(unittest.TestCase):
         model = DomainAITool()
         if include_optional:
             return DomainAITool(
-                function = openapi_client.models.domain/ai_function_call.domain.AIFunctionCall(
+                function = ai_core_api_client.models.domain/ai_function_call.domain.AIFunctionCall(
                     arguments = '', 
                     name = '', ),
                 id = '',

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.domain_ai_function_parameters import DomainAIFunctionParameters
+from ai_core_api_client.models.domain_ai_function_parameters import DomainAIFunctionParameters
 
 # TODO update the JSON string below
 json = "{}"

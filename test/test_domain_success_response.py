@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.domain_success_response import DomainSuccessResponse
+from ai_core_api_client.models.domain_success_response import DomainSuccessResponse
 
 class TestDomainSuccessResponse(unittest.TestCase):
     """DomainSuccessResponse unit test stubs"""

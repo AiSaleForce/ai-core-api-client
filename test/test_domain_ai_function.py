@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.domain_ai_function import DomainAIFunction
+from ai_core_api_client.models.domain_ai_function import DomainAIFunction
 
 class TestDomainAIFunction(unittest.TestCase):
     """DomainAIFunction unit test stubs"""
@@ -37,9 +37,9 @@ class TestDomainAIFunction(unittest.TestCase):
             return DomainAIFunction(
                 description = '',
                 name = '',
-                parameters = openapi_client.models.domain/ai_function_parameters.domain.AIFunctionParameters(
+                parameters = ai_core_api_client.models.domain/ai_function_parameters.domain.AIFunctionParameters(
                     properties = {
-                        'key' : openapi_client.models.domain/ai_function_parameter_property.domain.AIFunctionParameterProperty(
+                        'key' : ai_core_api_client.models.domain/ai_function_parameter_property.domain.AIFunctionParameterProperty(
                             description = '', 
                             type = '', )
                         }, 

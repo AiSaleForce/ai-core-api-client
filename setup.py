@@ -20,7 +20,7 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-NAME = "openapi-client"
+NAME = "ai-core-api-client"
 VERSION = "1.0.0"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
@@ -45,5 +45,5 @@ setup(
     long_description="""\
     This API gives you the ability to interact with AISF&#39;s neural networks
     """,  # noqa: E501
-    package_data={"openapi_client": ["py.typed"]},
+    package_data={"ai_core_api_client": ["py.typed"]},
 )

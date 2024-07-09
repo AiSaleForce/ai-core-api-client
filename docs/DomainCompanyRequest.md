@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.domain_company_request import DomainCompanyRequest
+from ai_core_api_client.models.domain_company_request import DomainCompanyRequest
 
 # TODO update the JSON string below
 json = "{}"

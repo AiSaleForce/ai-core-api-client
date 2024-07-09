@@ -17,21 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.domain_ai_function_call import DomainAIFunctionCall
+from ai_core_api_client.models.domain_ai_function import DomainAIFunction
+from ai_core_api_client.models.domain_ai_message import DomainAIMessage
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DomainAITool(BaseModel):
+class DomainConversationRequest(BaseModel):
     """
-    DomainAITool
+    DomainConversationRequest
     """ # noqa: E501
-    function: Optional[DomainAIFunctionCall] = None
-    id: Optional[StrictStr] = None
-    index: Optional[StrictInt] = None
-    type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["function", "id", "index", "type"]
+    functions: Optional[List[DomainAIFunction]] = None
+    messages: List[DomainAIMessage]
+    model: StrictStr
+    __properties: ClassVar[List[str]] = ["functions", "messages", "model"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +51,7 @@ class DomainAITool(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DomainAITool from a JSON string"""
+        """Create an instance of DomainConversationRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,14 +72,25 @@ class DomainAITool(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of function
-        if self.function:
-            _dict['function'] = self.function.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in functions (list)
+        _items = []
+        if self.functions:
+            for _item in self.functions:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['functions'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in messages (list)
+        _items = []
+        if self.messages:
+            for _item in self.messages:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['messages'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DomainAITool from a dict"""
+        """Create an instance of DomainConversationRequest from a dict"""
         if obj is None:
             return None
 
@@ -87,10 +98,9 @@ class DomainAITool(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "function": DomainAIFunctionCall.from_dict(obj["function"]) if obj.get("function") is not None else None,
-            "id": obj.get("id"),
-            "index": obj.get("index"),
-            "type": obj.get("type")
+            "functions": [DomainAIFunction.from_dict(_item) for _item in obj["functions"]] if obj.get("functions") is not None else None,
+            "messages": [DomainAIMessage.from_dict(_item) for _item in obj["messages"]] if obj.get("messages") is not None else None,
+            "model": obj.get("model")
         })
         return _obj
 

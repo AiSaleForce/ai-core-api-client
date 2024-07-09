@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.domain_error_response import DomainErrorResponse
+from ai_core_api_client.models.domain_error_response import DomainErrorResponse
 
 class TestDomainErrorResponse(unittest.TestCase):
     """DomainErrorResponse unit test stubs"""

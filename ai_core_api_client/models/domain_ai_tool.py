@@ -17,19 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.domain_ai_tool import DomainAITool
+from ai_core_api_client.models.domain_ai_function_call import DomainAIFunctionCall
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DomainConversationResponse(BaseModel):
+class DomainAITool(BaseModel):
     """
-    DomainConversationResponse
+    DomainAITool
     """ # noqa: E501
-    content: Optional[StrictStr] = None
-    tools: Optional[List[DomainAITool]] = None
-    __properties: ClassVar[List[str]] = ["content", "tools"]
+    function: Optional[DomainAIFunctionCall] = None
+    id: Optional[StrictStr] = None
+    index: Optional[StrictInt] = None
+    type: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["function", "id", "index", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +51,7 @@ class DomainConversationResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DomainConversationResponse from a JSON string"""
+        """Create an instance of DomainAITool from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,18 +72,14 @@ class DomainConversationResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in tools (list)
-        _items = []
-        if self.tools:
-            for _item in self.tools:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['tools'] = _items
+        # override the default output from pydantic by calling `to_dict()` of function
+        if self.function:
+            _dict['function'] = self.function.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DomainConversationResponse from a dict"""
+        """Create an instance of DomainAITool from a dict"""
         if obj is None:
             return None
 
@@ -89,8 +87,10 @@ class DomainConversationResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "content": obj.get("content"),
-            "tools": [DomainAITool.from_dict(_item) for _item in obj["tools"]] if obj.get("tools") is not None else None
+            "function": DomainAIFunctionCall.from_dict(obj["function"]) if obj.get("function") is not None else None,
+            "id": obj.get("id"),
+            "index": obj.get("index"),
+            "type": obj.get("type")
         })
         return _obj
 

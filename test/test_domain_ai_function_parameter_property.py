@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.domain_ai_function_parameter_property import DomainAIFunctionParameterProperty
+from ai_core_api_client.models.domain_ai_function_parameter_property import DomainAIFunctionParameterProperty
 
 class TestDomainAIFunctionParameterProperty(unittest.TestCase):
     """DomainAIFunctionParameterProperty unit test stubs"""

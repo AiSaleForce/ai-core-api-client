@@ -19,19 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.domain_ai_function import DomainAIFunction
-from openapi_client.models.domain_ai_message import DomainAIMessage
+from ai_core_api_client.models.domain_ai_function_parameters import DomainAIFunctionParameters
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DomainConversationRequest(BaseModel):
+class DomainAIFunction(BaseModel):
     """
-    DomainConversationRequest
+    DomainAIFunction
     """ # noqa: E501
-    functions: Optional[List[DomainAIFunction]] = None
-    messages: List[DomainAIMessage]
-    model: StrictStr
-    __properties: ClassVar[List[str]] = ["functions", "messages", "model"]
+    description: Optional[StrictStr] = None
+    name: Optional[StrictStr] = None
+    parameters: Optional[DomainAIFunctionParameters] = None
+    __properties: ClassVar[List[str]] = ["description", "name", "parameters"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +50,7 @@ class DomainConversationRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DomainConversationRequest from a JSON string"""
+        """Create an instance of DomainAIFunction from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,25 +71,14 @@ class DomainConversationRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in functions (list)
-        _items = []
-        if self.functions:
-            for _item in self.functions:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['functions'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in messages (list)
-        _items = []
-        if self.messages:
-            for _item in self.messages:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['messages'] = _items
+        # override the default output from pydantic by calling `to_dict()` of parameters
+        if self.parameters:
+            _dict['parameters'] = self.parameters.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DomainConversationRequest from a dict"""
+        """Create an instance of DomainAIFunction from a dict"""
         if obj is None:
             return None
 
@@ -98,9 +86,9 @@ class DomainConversationRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "functions": [DomainAIFunction.from_dict(_item) for _item in obj["functions"]] if obj.get("functions") is not None else None,
-            "messages": [DomainAIMessage.from_dict(_item) for _item in obj["messages"]] if obj.get("messages") is not None else None,
-            "model": obj.get("model")
+            "description": obj.get("description"),
+            "name": obj.get("name"),
+            "parameters": DomainAIFunctionParameters.from_dict(obj["parameters"]) if obj.get("parameters") is not None else None
         })
         return _obj
 

@@ -19,13 +19,13 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import List
 from typing_extensions import Annotated
-from openapi_client.models.domain_company import DomainCompany
-from openapi_client.models.domain_company_request import DomainCompanyRequest
-from openapi_client.models.domain_success_response import DomainSuccessResponse
+from ai_core_api_client.models.domain_company import DomainCompany
+from ai_core_api_client.models.domain_company_request import DomainCompanyRequest
+from ai_core_api_client.models.domain_success_response import DomainSuccessResponse
 
-from openapi_client.api_client import ApiClient, RequestSerialized
-from openapi_client.api_response import ApiResponse
-from openapi_client.rest import RESTResponseType
+from ai_core_api_client.api_client import ApiClient, RequestSerialized
+from ai_core_api_client.api_response import ApiResponse
+from ai_core_api_client.rest import RESTResponseType
 
 
 class CompanyApi:

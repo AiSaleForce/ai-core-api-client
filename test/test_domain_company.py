@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.domain_company import DomainCompany
+from ai_core_api_client.models.domain_company import DomainCompany
 
 class TestDomainCompany(unittest.TestCase):
     """DomainCompany unit test stubs"""

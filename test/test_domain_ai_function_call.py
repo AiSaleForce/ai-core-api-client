@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.domain_ai_function_call import DomainAIFunctionCall
+from ai_core_api_client.models.domain_ai_function_call import DomainAIFunctionCall
 
 class TestDomainAIFunctionCall(unittest.TestCase):
     """DomainAIFunctionCall unit test stubs"""

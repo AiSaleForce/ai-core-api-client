@@ -1,4 +1,4 @@
-# openapi_client.CompanyApi
+# ai_core_api_client.CompanyApi
 
 All URIs are relative to */api/v1*
 
@@ -22,14 +22,14 @@ This endpoint returns a list of all companies in the database
 * Api Key Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.domain_company import DomainCompany
-from openapi_client.rest import ApiException
+import ai_core_api_client
+from ai_core_api_client.models.domain_company import DomainCompany
+from ai_core_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to /api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = ai_core_api_client.Configuration(
     host = "/api/v1"
 )
 
@@ -45,9 +45,9 @@ configuration.api_key['BearerAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['BearerAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with ai_core_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CompanyApi(api_client)
+    api_instance = ai_core_api_client.CompanyApi(api_client)
 
     try:
         # Returns a list of companies
@@ -99,14 +99,14 @@ This endpoint removes the company from the database.
 * Api Key Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.domain_success_response import DomainSuccessResponse
-from openapi_client.rest import ApiException
+import ai_core_api_client
+from ai_core_api_client.models.domain_success_response import DomainSuccessResponse
+from ai_core_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to /api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = ai_core_api_client.Configuration(
     host = "/api/v1"
 )
 
@@ -122,9 +122,9 @@ configuration.api_key['BearerAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['BearerAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with ai_core_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CompanyApi(api_client)
+    api_instance = ai_core_api_client.CompanyApi(api_client)
     id = 'id_example' # str | Company ID
 
     try:
@@ -180,14 +180,14 @@ This endpoint returns details of a specific company by its ID in the database.
 * Api Key Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.domain_company import DomainCompany
-from openapi_client.rest import ApiException
+import ai_core_api_client
+from ai_core_api_client.models.domain_company import DomainCompany
+from ai_core_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to /api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = ai_core_api_client.Configuration(
     host = "/api/v1"
 )
 
@@ -203,9 +203,9 @@ configuration.api_key['BearerAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['BearerAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with ai_core_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CompanyApi(api_client)
+    api_instance = ai_core_api_client.CompanyApi(api_client)
     id = 'id_example' # str | Company ID
 
     try:
@@ -261,15 +261,15 @@ This endpoint creates a new company record in the database.
 * Api Key Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.domain_company_request import DomainCompanyRequest
-from openapi_client.models.domain_success_response import DomainSuccessResponse
-from openapi_client.rest import ApiException
+import ai_core_api_client
+from ai_core_api_client.models.domain_company_request import DomainCompanyRequest
+from ai_core_api_client.models.domain_success_response import DomainSuccessResponse
+from ai_core_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to /api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = ai_core_api_client.Configuration(
     host = "/api/v1"
 )
 
@@ -285,10 +285,10 @@ configuration.api_key['BearerAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['BearerAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with ai_core_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CompanyApi(api_client)
-    request = openapi_client.DomainCompanyRequest() # DomainCompanyRequest | Company Request
+    api_instance = ai_core_api_client.CompanyApi(api_client)
+    request = ai_core_api_client.DomainCompanyRequest() # DomainCompanyRequest | Company Request
 
     try:
         # Adds a company to the database

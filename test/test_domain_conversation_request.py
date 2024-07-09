@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.domain_conversation_request import DomainConversationRequest
+from ai_core_api_client.models.domain_conversation_request import DomainConversationRequest
 
 class TestDomainConversationRequest(unittest.TestCase):
     """DomainConversationRequest unit test stubs"""
@@ -36,12 +36,12 @@ class TestDomainConversationRequest(unittest.TestCase):
         if include_optional:
             return DomainConversationRequest(
                 functions = [
-                    openapi_client.models.domain/ai_function.domain.AIFunction(
+                    ai_core_api_client.models.domain/ai_function.domain.AIFunction(
                         description = '', 
                         name = '', 
-                        parameters = openapi_client.models.domain/ai_function_parameters.domain.AIFunctionParameters(
+                        parameters = ai_core_api_client.models.domain/ai_function_parameters.domain.AIFunctionParameters(
                             properties = {
-                                'key' : openapi_client.models.domain/ai_function_parameter_property.domain.AIFunctionParameterProperty(
+                                'key' : ai_core_api_client.models.domain/ai_function_parameter_property.domain.AIFunctionParameterProperty(
                                     description = '', 
                                     type = '', )
                                 }, 
@@ -51,7 +51,7 @@ class TestDomainConversationRequest(unittest.TestCase):
                             type = '', ), )
                     ],
                 messages = [
-                    openapi_client.models.domain/ai_message.domain.AIMessage(
+                    ai_core_api_client.models.domain/ai_message.domain.AIMessage(
                         content = '', 
                         role = '', )
                     ],
@@ -60,7 +60,7 @@ class TestDomainConversationRequest(unittest.TestCase):
         else:
             return DomainConversationRequest(
                 messages = [
-                    openapi_client.models.domain/ai_message.domain.AIMessage(
+                    ai_core_api_client.models.domain/ai_message.domain.AIMessage(
                         content = '', 
                         role = '', )
                     ],

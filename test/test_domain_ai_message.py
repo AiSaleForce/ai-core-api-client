@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.domain_ai_message import DomainAIMessage
+from ai_core_api_client.models.domain_ai_message import DomainAIMessage
 
 class TestDomainAIMessage(unittest.TestCase):
     """DomainAIMessage unit test stubs"""

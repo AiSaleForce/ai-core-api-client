@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.domain_ai_function_parameter_property import DomainAIFunctionParameterProperty
+from ai_core_api_client.models.domain_ai_function_parameter_property import DomainAIFunctionParameterProperty
 from typing import Optional, Set
 from typing_extensions import Self
 

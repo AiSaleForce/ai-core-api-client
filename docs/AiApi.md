@@ -1,4 +1,4 @@
-# openapi_client.AiApi
+# ai_core_api_client.AiApi
 
 All URIs are relative to */api/v1*
 
@@ -19,15 +19,15 @@ This endpoint generates a response from an AI model based on the provided conver
 * Api Key Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.domain_conversation_request import DomainConversationRequest
-from openapi_client.models.domain_conversation_response import DomainConversationResponse
-from openapi_client.rest import ApiException
+import ai_core_api_client
+from ai_core_api_client.models.domain_conversation_request import DomainConversationRequest
+from ai_core_api_client.models.domain_conversation_response import DomainConversationResponse
+from ai_core_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to /api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = ai_core_api_client.Configuration(
     host = "/api/v1"
 )
 
@@ -43,10 +43,10 @@ configuration.api_key['BearerAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['BearerAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with ai_core_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AiApi(api_client)
-    request = openapi_client.DomainConversationRequest() # DomainConversationRequest | Conversation Request
+    api_instance = ai_core_api_client.AiApi(api_client)
+    request = ai_core_api_client.DomainConversationRequest() # DomainConversationRequest | Conversation Request
 
     try:
         # Generate response from AI model

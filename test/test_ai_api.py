@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.ai_api import AiApi
+from ai_core_api_client.api.ai_api import AiApi
 
 
 class TestAiApi(unittest.TestCase):

@@ -18,12 +18,12 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from openapi_client.models.domain_conversation_request import DomainConversationRequest
-from openapi_client.models.domain_conversation_response import DomainConversationResponse
+from ai_core_api_client.models.domain_conversation_request import DomainConversationRequest
+from ai_core_api_client.models.domain_conversation_response import DomainConversationResponse
 
-from openapi_client.api_client import ApiClient, RequestSerialized
-from openapi_client.api_response import ApiResponse
-from openapi_client.rest import RESTResponseType
+from ai_core_api_client.api_client import ApiClient, RequestSerialized
+from ai_core_api_client.api_response import ApiResponse
+from ai_core_api_client.rest import RESTResponseType
 
 
 class AiApi:

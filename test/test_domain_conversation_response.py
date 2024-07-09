@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.domain_conversation_response import DomainConversationResponse
+from ai_core_api_client.models.domain_conversation_response import DomainConversationResponse
 
 class TestDomainConversationResponse(unittest.TestCase):
     """DomainConversationResponse unit test stubs"""
@@ -37,8 +37,8 @@ class TestDomainConversationResponse(unittest.TestCase):
             return DomainConversationResponse(
                 content = '',
                 tools = [
-                    openapi_client.models.domain/ai_tool.domain.AITool(
-                        function = openapi_client.models.domain/ai_function_call.domain.AIFunctionCall(
+                    ai_core_api_client.models.domain/ai_tool.domain.AITool(
+                        function = ai_core_api_client.models.domain/ai_function_call.domain.AIFunctionCall(
                             arguments = '', 
                             name = '', ), 
                         id = '', 
