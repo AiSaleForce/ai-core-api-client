@@ -18,9 +18,9 @@ Python 3.7+
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+http://git.space.ai-sale-force.ru/main/ai-core-api-client.git
+pip install git+https://github.com/AiSaleForce/ai-core-api-client.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+http://git.space.ai-sale-force.ru/main/ai-core-api-client.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/AiSaleForce/ai-core-api-client.git`)
 
 Then import the package:
 ```python
