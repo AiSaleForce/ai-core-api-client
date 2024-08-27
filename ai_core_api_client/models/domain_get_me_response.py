@@ -17,18 +17,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from ai_core_api_client.models.domain_company_function import DomainCompanyFunction
+from ai_core_api_client.models.domain_prompt_block import DomainPromptBlock
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DomainCompanyRequest(BaseModel):
+class DomainGetMeResponse(BaseModel):
     """
-    DomainCompanyRequest
+    DomainGetMeResponse
     """ # noqa: E501
-    name: StrictStr
-    token: StrictStr
-    __properties: ClassVar[List[str]] = ["name", "token"]
+    functions: Optional[List[DomainCompanyFunction]] = None
+    id: Optional[StrictStr] = None
+    level: Optional[StrictInt] = None
+    name: Optional[StrictStr] = None
+    prompt_blocks: Optional[List[DomainPromptBlock]] = None
+    __properties: ClassVar[List[str]] = ["functions", "id", "level", "name", "prompt_blocks"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +53,7 @@ class DomainCompanyRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DomainCompanyRequest from a JSON string"""
+        """Create an instance of DomainGetMeResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,11 +74,25 @@ class DomainCompanyRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in functions (list)
+        _items = []
+        if self.functions:
+            for _item_functions in self.functions:
+                if _item_functions:
+                    _items.append(_item_functions.to_dict())
+            _dict['functions'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in prompt_blocks (list)
+        _items = []
+        if self.prompt_blocks:
+            for _item_prompt_blocks in self.prompt_blocks:
+                if _item_prompt_blocks:
+                    _items.append(_item_prompt_blocks.to_dict())
+            _dict['prompt_blocks'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DomainCompanyRequest from a dict"""
+        """Create an instance of DomainGetMeResponse from a dict"""
         if obj is None:
             return None
 
@@ -81,8 +100,11 @@ class DomainCompanyRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "functions": [DomainCompanyFunction.from_dict(_item) for _item in obj["functions"]] if obj.get("functions") is not None else None,
+            "id": obj.get("id"),
+            "level": obj.get("level"),
             "name": obj.get("name"),
-            "token": obj.get("token")
+            "prompt_blocks": [DomainPromptBlock.from_dict(_item) for _item in obj["prompt_blocks"]] if obj.get("prompt_blocks") is not None else None
         })
         return _obj
 

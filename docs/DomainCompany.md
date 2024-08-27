@@ -5,14 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**functions** | [**List[DomainCompanyFunction]**](DomainCompanyFunction.md) |  | [optional] 
 **id** | **str** |  | [optional] 
+**integration_url** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
+**prompt_blocks** | [**List[DomainPromptBlock]**](DomainPromptBlock.md) |  | [optional] 
 **token** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from ai_core_api_client.models.domain_company import DomainCompany
+from openapi_client.models.domain_company import DomainCompany
 
 # TODO update the JSON string below
 json = "{}"

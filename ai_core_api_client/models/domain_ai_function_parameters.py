@@ -74,9 +74,9 @@ class DomainAIFunctionParameters(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each value in properties (dict)
         _field_dict = {}
         if self.properties:
-            for _key in self.properties:
-                if self.properties[_key]:
-                    _field_dict[_key] = self.properties[_key].to_dict()
+            for _key_properties in self.properties:
+                if self.properties[_key_properties]:
+                    _field_dict[_key_properties] = self.properties[_key_properties].to_dict()
             _dict['properties'] = _field_dict
         return _dict
 

@@ -19,6 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from ai_core_api_client.models.domain_company_function import DomainCompanyFunction
+from ai_core_api_client.models.domain_prompt_block import DomainPromptBlock
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,10 +28,13 @@ class DomainCompany(BaseModel):
     """
     DomainCompany
     """ # noqa: E501
+    functions: Optional[List[DomainCompanyFunction]] = None
     id: Optional[StrictStr] = None
+    integration_url: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
+    prompt_blocks: Optional[List[DomainPromptBlock]] = None
     token: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "token"]
+    __properties: ClassVar[List[str]] = ["functions", "id", "integration_url", "name", "prompt_blocks", "token"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +75,20 @@ class DomainCompany(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in functions (list)
+        _items = []
+        if self.functions:
+            for _item_functions in self.functions:
+                if _item_functions:
+                    _items.append(_item_functions.to_dict())
+            _dict['functions'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in prompt_blocks (list)
+        _items = []
+        if self.prompt_blocks:
+            for _item_prompt_blocks in self.prompt_blocks:
+                if _item_prompt_blocks:
+                    _items.append(_item_prompt_blocks.to_dict())
+            _dict['prompt_blocks'] = _items
         return _dict
 
     @classmethod
@@ -82,8 +101,11 @@ class DomainCompany(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "functions": [DomainCompanyFunction.from_dict(_item) for _item in obj["functions"]] if obj.get("functions") is not None else None,
             "id": obj.get("id"),
+            "integration_url": obj.get("integration_url"),
             "name": obj.get("name"),
+            "prompt_blocks": [DomainPromptBlock.from_dict(_item) for _item in obj["prompt_blocks"]] if obj.get("prompt_blocks") is not None else None,
             "token": obj.get("token")
         })
         return _obj

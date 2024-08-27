@@ -73,9 +73,9 @@ class DomainConversationResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in tools (list)
         _items = []
         if self.tools:
-            for _item in self.tools:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_tools in self.tools:
+                if _item_tools:
+                    _items.append(_item_tools.to_dict())
             _dict['tools'] = _items
         return _dict
 

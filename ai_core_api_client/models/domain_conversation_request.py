@@ -75,16 +75,16 @@ class DomainConversationRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in functions (list)
         _items = []
         if self.functions:
-            for _item in self.functions:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_functions in self.functions:
+                if _item_functions:
+                    _items.append(_item_functions.to_dict())
             _dict['functions'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in messages (list)
         _items = []
         if self.messages:
-            for _item in self.messages:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_messages in self.messages:
+                if _item_messages:
+                    _items.append(_item_messages.to_dict())
             _dict['messages'] = _items
         return _dict
 

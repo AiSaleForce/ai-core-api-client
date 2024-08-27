@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from ai_core_api_client.models.domain_ai_function_parameter_property import DomainAIFunctionParameterProperty
+from openapi_client.models.domain_ai_function_parameter_property import DomainAIFunctionParameterProperty
 
 # TODO update the JSON string below
 json = "{}"

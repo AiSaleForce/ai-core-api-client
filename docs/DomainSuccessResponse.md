@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from ai_core_api_client.models.domain_success_response import DomainSuccessResponse
+from openapi_client.models.domain_success_response import DomainSuccessResponse
 
 # TODO update the JSON string below
 json = "{}"

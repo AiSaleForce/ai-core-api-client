@@ -18,7 +18,10 @@ __version__ = "1.0.0"
 
 # import apis into sdk package
 from ai_core_api_client.api.ai_api import AiApi
+from ai_core_api_client.api.chats_api import ChatsApi
 from ai_core_api_client.api.company_api import CompanyApi
+from ai_core_api_client.api.get_me_api import GetMeApi
+from ai_core_api_client.api.metrics_api import MetricsApi
 
 # import ApiClient
 from ai_core_api_client.api_response import ApiResponse
@@ -38,9 +41,17 @@ from ai_core_api_client.models.domain_ai_function_parameter_property import Doma
 from ai_core_api_client.models.domain_ai_function_parameters import DomainAIFunctionParameters
 from ai_core_api_client.models.domain_ai_message import DomainAIMessage
 from ai_core_api_client.models.domain_ai_tool import DomainAITool
+from ai_core_api_client.models.domain_client_chat import DomainClientChat
+from ai_core_api_client.models.domain_client_message import DomainClientMessage
 from ai_core_api_client.models.domain_company import DomainCompany
-from ai_core_api_client.models.domain_company_request import DomainCompanyRequest
+from ai_core_api_client.models.domain_company_create_request import DomainCompanyCreateRequest
+from ai_core_api_client.models.domain_company_function import DomainCompanyFunction
+from ai_core_api_client.models.domain_company_update_request import DomainCompanyUpdateRequest
 from ai_core_api_client.models.domain_conversation_request import DomainConversationRequest
 from ai_core_api_client.models.domain_conversation_response import DomainConversationResponse
 from ai_core_api_client.models.domain_error_response import DomainErrorResponse
+from ai_core_api_client.models.domain_get_chats_response import DomainGetChatsResponse
+from ai_core_api_client.models.domain_get_me_response import DomainGetMeResponse
+from ai_core_api_client.models.domain_metrics_response import DomainMetricsResponse
+from ai_core_api_client.models.domain_prompt_block import DomainPromptBlock
 from ai_core_api_client.models.domain_success_response import DomainSuccessResponse
